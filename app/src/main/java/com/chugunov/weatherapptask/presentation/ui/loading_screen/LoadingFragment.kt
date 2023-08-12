@@ -1,26 +1,27 @@
-package com.chugunov.weatherapptask.presentation.ui
+package com.chugunov.weatherapptask.presentation.ui.loading_screen
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.chugunov.weatherapptask.databinding.FragmentMainScreenBinding
+import com.chugunov.weatherapptask.databinding.FragmentLoadingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainScreenFragment: Fragment() {
+class LoadingFragment : Fragment() {
 
-    private var _binding: FragmentMainScreenBinding? = null
-    private val binding: FragmentMainScreenBinding
-        get() = _binding ?: throw RuntimeException("FragmentMainBinding == null")
+
+    private var _binding: FragmentLoadingBinding? = null
+    private val binding: FragmentLoadingBinding
+        get() = _binding ?: throw RuntimeException("FragmentLoadingBinding == null")
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
+        _binding = FragmentLoadingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -28,4 +29,5 @@ class MainScreenFragment: Fragment() {
         super.onDestroy()
         _binding = null
     }
+
 }

@@ -7,42 +7,16 @@
     android:background="@color/custom_color"
     android:clipToPadding="false">
 
-    <ImageButton
-        android:id="@+id/city_selector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/icon_location"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/custom_color"/>
-
-
-
-    <TextView
-        android:id="@+id/tv_city_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:elevation="10dp"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Волгоград" />
-
 
     <ImageView
         android:id="@+id/image_weather_status"
         android:layout_width="155dp"
         android:layout_height="155dp"
-        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_city_name"
-        tools:src="@drawable/moon_cloud_mid_rain" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/moon_cloud_mid_rain"
+        android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/tv_temperature_title"
@@ -141,33 +115,22 @@
         tools:text="10 km/ч" />
 
     <TextView
-        android:id="@+id/today_tv"
+        android:id="@+id/date_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="@string/today"
+        tools:text="Август, 9"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_temp_humidity" />
 
-    <TextView
-        android:id="@+id/date_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/today_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/today_tv"
-        tools:text="Август, 8" />
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/today_rv"
+        android:id="@+id/hour_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -175,34 +138,11 @@
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/today_tv"
+        app:layout_constraintTop_toBottomOf="@+id/date_textview"
         tools:listitem="@layout/card_hour_item" />
 
-    <TextView
-        android:id="@+id/next_forecast_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/next_forecast"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/today_rv" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/forecast_weather_rv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/next_forecast_textview"
-        tools:listitem="@layout/card_forecast_day" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

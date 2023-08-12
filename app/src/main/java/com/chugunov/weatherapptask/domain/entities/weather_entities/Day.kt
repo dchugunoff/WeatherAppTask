@@ -1,5 +1,9 @@
 package com.chugunov.weatherapptask.domain.entities.weather_entities
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Day(
     val avgtemp_c: Double,
     val avgtemp_f: Double,
@@ -11,5 +15,7 @@ data class Day(
     val maxtemp_c: Double,
     val maxtemp_f: Double,
     val mintemp_c: Double,
-    val mintemp_f: Double
-)
+    val mintemp_f: Double,
+    val avgvis_km: Double,
+    val avghumidity: Double
+): Parcelable
