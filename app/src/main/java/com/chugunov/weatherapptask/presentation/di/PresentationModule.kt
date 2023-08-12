@@ -1,7 +1,7 @@
 package com.chugunov.weatherapptask.presentation.di
 
-import com.chugunov.weatherapptask.presentation.ui.HourItemAdapter
-import com.chugunov.weatherapptask.presentation.ui.WeatherForecastAdapter
+import com.chugunov.weatherapptask.presentation.ui.adapters.HourItemAdapter
+import com.chugunov.weatherapptask.presentation.ui.adapters.WeatherForecastAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

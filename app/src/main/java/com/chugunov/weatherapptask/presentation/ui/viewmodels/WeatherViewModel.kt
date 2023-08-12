@@ -1,4 +1,4 @@
-package com.chugunov.weatherapptask.presentation.ui
+package com.chugunov.weatherapptask.presentation.ui.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData

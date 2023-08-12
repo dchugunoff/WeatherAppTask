@@ -1,4 +1,4 @@
-package com.chugunov.weatherapptask.presentation.ui
+package com.chugunov.weatherapptask.presentation.ui.forecast_day_screen
 
 import android.os.Build
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import coil.load
 import com.chugunov.weatherapptask.databinding.FragmentBottomSheetForecastDialogBinding
 import com.chugunov.weatherapptask.domain.entities.weather_entities.Forecastday
+import com.chugunov.weatherapptask.presentation.ui.adapters.HourItemAdapter
 import com.chugunov.weatherapptask.presentation.utils.ConvertDateUtils
 import com.chugunov.weatherapptask.presentation.utils.FormattedUrl
 import com.chugunov.weatherapptask.presentation.utils.FormattedWeatherData

@@ -1,4 +1,4 @@
-package com.chugunov.weatherapptask.presentation.ui
+package com.chugunov.weatherapptask.presentation.ui.main_screen
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -6,11 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import coil.load
 import com.chugunov.weatherapptask.R
 import com.chugunov.weatherapptask.databinding.FragmentMainScreenBinding
 import com.chugunov.weatherapptask.domain.entities.weather_entities.Forecastday
+import com.chugunov.weatherapptask.presentation.ui.adapters.HourItemAdapter
+import com.chugunov.weatherapptask.presentation.ui.adapters.WeatherForecastAdapter
+import com.chugunov.weatherapptask.presentation.ui.viewmodels.WeatherViewModel
+import com.chugunov.weatherapptask.presentation.ui.forecast_day_screen.BottomSheetForecastDayDialog
 import com.chugunov.weatherapptask.presentation.utils.ConvertDateUtils
 import com.chugunov.weatherapptask.presentation.utils.FormattedUrl
 import com.chugunov.weatherapptask.presentation.utils.FormattedWeatherData
@@ -20,7 +24,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainScreenFragment : Fragment() {
 
-    private val viewModel: WeatherViewModel by viewModels()
+    private val viewModel: WeatherViewModel by activityViewModels()
 
     @Inject
     lateinit var adapter: WeatherForecastAdapter

@@ -1,4 +1,4 @@
-package com.chugunov.weatherapptask.presentation.ui
+package com.chugunov.weatherapptask.presentation.ui.adapters
 
 
 import android.view.LayoutInflater

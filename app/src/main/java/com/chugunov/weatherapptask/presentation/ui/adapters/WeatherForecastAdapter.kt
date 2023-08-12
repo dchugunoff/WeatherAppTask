@@ -1,7 +1,6 @@
-package com.chugunov.weatherapptask.presentation.ui
+package com.chugunov.weatherapptask.presentation.ui.adapters
 
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
