@@ -21,15 +21,14 @@ class WeatherViewModel @Inject constructor(
         get() = _weatherData
 
     init {
-        updateWeatherData()
+        updateWeatherData(city = DEFAULT_CITY_NAME)
     }
 
-    private fun updateWeatherData() {
+    fun updateWeatherData(city: String) {
         viewModelScope.launch {
             try {
-                val weather = weatherRepositoryImpl.getWeatherResponse(DEFAULT_CITY_NAME, LANG)
+                val weather = weatherRepositoryImpl.getWeatherResponse(city)
                 _weatherData.value = weather
-                Log.d("WeatherViewModel", "${_weatherData.value.toString()}")
             } catch (e: Exception) {
                 Log.d("WeatherViewModel", "Error fetching weather data ${e.message}")
             }
@@ -37,7 +36,6 @@ class WeatherViewModel @Inject constructor(
     }
 
     companion object {
-        const val LANG = "ru"
-        const val DEFAULT_CITY_NAME = "Volgograd"
+        const val DEFAULT_CITY_NAME = "Москва"
     }
 }

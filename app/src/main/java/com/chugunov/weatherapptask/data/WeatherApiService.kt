@@ -9,7 +9,7 @@ interface WeatherApiService {
     suspend fun getWeatherResponse(
         @Query("key") apiKey: String,
         @Query("q") location: String,
-        @Query("lang") language: String,
+        @Query("lang") language: String = "ru",
         @Query("aqi") aqi: String = "no",
         @Query("days") days: Int = 5
     ): WeatherModel

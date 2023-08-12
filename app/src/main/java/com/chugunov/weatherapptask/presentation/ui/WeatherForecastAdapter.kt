@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.chugunov.weatherapptask.databinding.CardForecatsDayBinding
+import com.chugunov.weatherapptask.databinding.CardForecastDayBinding
 import com.chugunov.weatherapptask.domain.entities.weather_entities.Forecastday
 import com.chugunov.weatherapptask.presentation.utils.ConvertDateUtils
 import com.chugunov.weatherapptask.presentation.utils.FormattedUrl
 
 class WeatherForecastAdapter :
     ListAdapter<Forecastday, WeatherForecastAdapter.WeatherForecastViewHolder>(DiffCallback) {
-    class WeatherForecastViewHolder(private val binding: CardForecatsDayBinding) :
+    class WeatherForecastViewHolder(private val binding: CardForecastDayBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(forecastDay: Forecastday) {
             binding.weatherImage.load(FormattedUrl(forecastDay.day.condition.icon))
@@ -39,7 +39,7 @@ class WeatherForecastAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherForecastViewHolder {
-        val binding = CardForecatsDayBinding.inflate(
+        val binding = CardForecastDayBinding.inflate(
             LayoutInflater.from(
                 parent.context
             ),

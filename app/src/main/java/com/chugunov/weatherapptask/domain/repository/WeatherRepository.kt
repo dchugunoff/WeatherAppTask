@@ -4,5 +4,5 @@ import com.chugunov.weatherapptask.domain.entities.weather_entities.WeatherModel
 
 interface WeatherRepository {
 
-    suspend fun getWeatherResponse(location: String, lang: String): WeatherModel
+    suspend fun getWeatherResponse(location: String): WeatherModel
 }

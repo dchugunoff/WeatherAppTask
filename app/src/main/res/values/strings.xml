@@ -8,4 +8,6 @@
     <string name="formatted_wind">%s м/c</string>
     <string name="next_forecast">Другие дни</string>
     <string name="max_min_temp">%s / %s</string>
+    <string name="today">Сегодня</string>
+    <string name="select_city">Выберите город</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.chugunov.weatherapptask.presentation.di
 
+import com.chugunov.weatherapptask.presentation.ui.HourItemAdapter
 import com.chugunov.weatherapptask.presentation.ui.WeatherForecastAdapter
 import dagger.Module
 import dagger.Provides
@@ -14,4 +15,8 @@ object PresentationModule {
     @Provides
     @Singleton
     fun provideForecastAdapter(): WeatherForecastAdapter = WeatherForecastAdapter()
+
+    @Provides
+    @Singleton
+    fun provideHourAdapter(): HourItemAdapter = HourItemAdapter()
 }

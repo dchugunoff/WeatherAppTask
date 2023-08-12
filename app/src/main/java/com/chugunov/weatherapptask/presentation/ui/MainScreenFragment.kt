@@ -1,5 +1,6 @@
 package com.chugunov.weatherapptask.presentation.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +11,7 @@ import androidx.fragment.app.viewModels
 import coil.load
 import com.chugunov.weatherapptask.R
 import com.chugunov.weatherapptask.databinding.FragmentMainScreenBinding
-import com.chugunov.weatherapptask.domain.entities.weather_entities.Forecastday
+import com.chugunov.weatherapptask.presentation.utils.ConvertDateUtils
 import com.chugunov.weatherapptask.presentation.utils.FormattedUrl
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -22,6 +23,9 @@ class MainScreenFragment : Fragment() {
 
     @Inject
     lateinit var adapter: WeatherForecastAdapter
+
+    @Inject
+    lateinit var hourAdapter: HourItemAdapter
 
     private var _binding: FragmentMainScreenBinding? = null
     private val binding: FragmentMainScreenBinding
@@ -38,6 +42,20 @@ class MainScreenFragment : Fragment() {
     }
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        bindAdapters()
+        binding.citySelector.setOnClickListener {
+            showCitySelectorDialog()
+        }
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
     private fun bindCurrentWeather() {
         viewModel.weatherData.observe(viewLifecycleOwner) {
             with(binding) {
@@ -47,26 +65,36 @@ class MainScreenFragment : Fragment() {
                 tvTempWind.text = formattedWind(it.current.wind_kph)
                 tvTempMeter.text = formattedToCelsius(it.current.temp_c)
                 imageWeatherStatus.load(FormattedUrl(it.current.condition.icon))
+                conditionText.text = it.current.condition.text
+                dateTextview.text =
+                    ConvertDateUtils.convertDateToMonth(it.forecast.forecastday[0].date)
             }
         }
     }
 
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun bindAdapters() {
         viewModel.weatherData.observe(viewLifecycleOwner) {
             binding.forecastWeatherRv.adapter = adapter
+            binding.todayRv.adapter = hourAdapter
             viewModel.weatherData.observe(viewLifecycleOwner) {
                 adapter.submitList(it.forecast.forecastday.drop(1))
+                hourAdapter.submitList(it.forecast.forecastday[0].hour)
             }
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
+    private fun showCitySelectorDialog() {
+        val cityNames = resources.getStringArray(R.array.city_array)
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(getString(R.string.select_city))
+        builder.setItems(cityNames) { _, which ->
+            val selectedCity = cityNames[which]
+            viewModel.updateWeatherData(selectedCity)
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
+
 
     private fun formattedToCelsius(celsius: Double): String {
         val temp = celsius.toInt()
