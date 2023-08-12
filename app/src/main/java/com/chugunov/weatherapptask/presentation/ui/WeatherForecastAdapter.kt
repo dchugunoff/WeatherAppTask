@@ -1,6 +1,7 @@
 package com.chugunov.weatherapptask.presentation.ui
 
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -52,5 +53,8 @@ class WeatherForecastAdapter :
     override fun onBindViewHolder(holder: WeatherForecastViewHolder, position: Int) {
         val forecastDay = getItem(position)
         holder.bind(forecastDay)
+        holder.itemView.setOnClickListener {
+
+        }
     }
 }

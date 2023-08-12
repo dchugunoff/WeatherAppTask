@@ -1,5 +1,9 @@
 package com.chugunov.weatherapptask.domain.entities.weather_entities
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Hour(
     val chance_of_rain: Int,
     val chance_of_snow: Int,
@@ -11,4 +15,4 @@ data class Hour(
     val temp_f: Double,
     val time: String,
     val time_epoch: Int
-)
+): Parcelable
