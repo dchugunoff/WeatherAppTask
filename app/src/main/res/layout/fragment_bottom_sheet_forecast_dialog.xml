@@ -7,29 +7,16 @@
     android:background="@color/custom_color"
     android:clipToPadding="false">
 
-    <TextView
-        android:id="@+id/tv_city_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:elevation="10dp"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Волгоград" />
-
 
     <ImageView
         android:id="@+id/image_weather_status"
         android:layout_width="155dp"
         android:layout_height="155dp"
-        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_city_name"
-        tools:src="@drawable/moon_cloud_mid_rain" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/moon_cloud_mid_rain"
+        android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/tv_temperature_title"

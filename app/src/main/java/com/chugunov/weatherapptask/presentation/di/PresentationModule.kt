@@ -17,6 +17,5 @@ object PresentationModule {
     fun provideForecastAdapter(): WeatherForecastAdapter = WeatherForecastAdapter()
 
     @Provides
-    @Singleton
     fun provideHourAdapter(): HourItemAdapter = HourItemAdapter()
 }

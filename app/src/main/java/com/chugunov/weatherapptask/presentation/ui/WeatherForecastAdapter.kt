@@ -12,9 +12,19 @@ import com.chugunov.weatherapptask.databinding.CardForecastDayBinding
 import com.chugunov.weatherapptask.domain.entities.weather_entities.Forecastday
 import com.chugunov.weatherapptask.presentation.utils.ConvertDateUtils
 import com.chugunov.weatherapptask.presentation.utils.FormattedUrl
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class WeatherForecastAdapter :
+@Singleton
+class WeatherForecastAdapter @Inject constructor() :
     ListAdapter<Forecastday, WeatherForecastAdapter.WeatherForecastViewHolder>(DiffCallback) {
+
+    private var itemClickListener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        itemClickListener = listener
+    }
+
     class WeatherForecastViewHolder(private val binding: CardForecastDayBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(forecastDay: Forecastday) {
@@ -54,7 +64,10 @@ class WeatherForecastAdapter :
         val forecastDay = getItem(position)
         holder.bind(forecastDay)
         holder.itemView.setOnClickListener {
-
+            itemClickListener?.onItemClick(forecastDay)
         }
+    }
+    interface OnItemClickListener {
+        fun onItemClick(forecastDay: Forecastday)
     }
 }

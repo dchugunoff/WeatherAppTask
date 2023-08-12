@@ -15,5 +15,7 @@ data class Day(
     val maxtemp_c: Double,
     val maxtemp_f: Double,
     val mintemp_c: Double,
-    val mintemp_f: Double
+    val mintemp_f: Double,
+    val avgvis_km: Double,
+    val avghumidity: Double
 ): Parcelable
