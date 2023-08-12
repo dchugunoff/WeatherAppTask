@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">WeatherAppTask</string>
+    <string name="temp">Температура</string>
+    <string name="humidity">Влажность</string>
+    <string name="wind">Ветренность</string>
+    <string name="formatted_temp">%s°C</string>
+    <string name="formatted_humidity">%s%%</string>
+    <string name="formatted_wind">%s м/c</string>
+    <string name="next_forecast">Другие дни</string>
+    <string name="max_min_temp">%s / %s</string>
 </resources>
