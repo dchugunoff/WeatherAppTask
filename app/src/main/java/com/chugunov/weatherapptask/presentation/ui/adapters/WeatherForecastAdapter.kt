@@ -29,6 +29,7 @@ class WeatherForecastAdapter @Inject constructor() :
         fun bind(forecastDay: Forecastday) {
             binding.weatherImage.load(FormattedUrl(forecastDay.day.condition.icon))
             binding.dayOfWeek.text = ConvertDateUtils.convertDateToDayOfWeek(forecastDay.date)
+                .replaceFirstChar(Char::titlecase)
             binding.weatherTemp.text =
                 "${forecastDay.day.maxtemp_c.toInt()} / ${forecastDay.day.mintemp_c.toInt()}"
         }
@@ -66,6 +67,7 @@ class WeatherForecastAdapter @Inject constructor() :
             itemClickListener?.onItemClick(forecastDay)
         }
     }
+
     interface OnItemClickListener {
         fun onItemClick(forecastDay: Forecastday)
     }

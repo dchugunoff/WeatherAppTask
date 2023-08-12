@@ -13,8 +13,8 @@ import com.chugunov.weatherapptask.databinding.FragmentMainScreenBinding
 import com.chugunov.weatherapptask.domain.entities.weather_entities.Forecastday
 import com.chugunov.weatherapptask.presentation.ui.adapters.HourItemAdapter
 import com.chugunov.weatherapptask.presentation.ui.adapters.WeatherForecastAdapter
-import com.chugunov.weatherapptask.presentation.ui.viewmodels.WeatherViewModel
 import com.chugunov.weatherapptask.presentation.ui.forecast_day_screen.BottomSheetForecastDayDialog
+import com.chugunov.weatherapptask.presentation.ui.viewmodels.WeatherViewModel
 import com.chugunov.weatherapptask.presentation.utils.ConvertDateUtils
 import com.chugunov.weatherapptask.presentation.utils.FormattedUrl
 import com.chugunov.weatherapptask.presentation.utils.FormattedWeatherData
@@ -73,6 +73,7 @@ class MainScreenFragment : Fragment() {
                 conditionText.text = it.current.condition.text
                 dateTextview.text =
                     ConvertDateUtils.convertDateToMonth(it.forecast.forecastday[0].date)
+                        .replaceFirstChar(Char::titlecase)
             }
         }
     }

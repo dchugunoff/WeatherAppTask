@@ -61,6 +61,7 @@ class BottomSheetForecastDayDialog : BottomSheetDialogFragment() {
                     FormattedWeatherData.formattedToCelsius(forecastDay.day.avgtemp_c)
                 conditionText.text = forecastDay.day.condition.text
                 dateTextview.text = ConvertDateUtils.convertDateToMonth(forecastDay.date)
+                    .replaceFirstChar(Char::titlecase)
                 tvTempHumidity.text =
                     FormattedWeatherData.formattedToPercent(forecastDay.day.avghumidity.toInt())
                 tvTempWind.text = FormattedWeatherData.formattedWind(forecastDay.day.avgvis_km)
