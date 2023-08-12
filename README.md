@@ -4,6 +4,17 @@
 ## Задание
 ![](https://i.imgur.com/T9iONoB.png)
 
+## Используемые технологии
+Краткий обзор используемых технологий
+- Clean Architecture
+- MVVM
+- Hilt
+- Single Activity
+- ViewBinding
+- Navigation
+- Retrofit2
+- Coil
+
 ## Решение
 ![](https://i.imgur.com/ipE6g7R.png)
 ![](https://i.imgur.com/xJSzdt2.png)
